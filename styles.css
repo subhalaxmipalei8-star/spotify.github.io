@@ -1,0 +1,107 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  color: white;
+  line-height: 1.6;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 30px;
+  background-color: #181818;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img {
+  border-radius: 10px;
+}
+
+header input {
+  width: 350px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  margin: 0 12px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #cba413;
+}
+
+header button {
+  background: #cba413;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header button:hover {
+  background: #e6c84a;
+}
+
+/* Section titles */
+h2 {
+  margin: 20px 0;
+  font-size: 24px;
+  border-left: 5px solid #cba413;
+  padding-left: 10px;
+}
+
+/* Song grid */
+#trending, #newly {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 40px 0px 0px;
+}
+
+.song {
+  background: #282828;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.song img {
+  border-radius: 10px;
+  margin-bottom: 12px;
+  width: 200px;
+  height: 200px;
+}
+
+.song h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.song:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
