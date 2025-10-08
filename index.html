@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify </title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Page */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #121212;
+      color: #fff;
+      padding-bottom: 120px; /* Enough space for fixed footer */
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #181818;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      border-radius: 8px;
+    }
+
+    header input {
+      width: 350px;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #b3b3b3;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    header a:hover {
+      color: #fff;
+    }
+
+    header button {
+      background: #1db954;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #000;
+    }
+
+    header button:hover {
+      background: #1ed760;
+    }
+
+    /* Section Titles */
+    h2 {
+      margin: 30px 20px 15px;
+      font-size: 22px;
+    }
+
+    /* Song Grid */
+    #trending, #newly {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    #trending {
+      margin-bottom: 40px;
+    }
+
+    .song {
+      background: #181818;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .song img {
+      border-radius: 8px;
+      margin-bottom: 12px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .song h3 {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .song p {
+      margin: 0;
+      font-size: 12px;
+      color: #b3b3b3;
+    }
+
+    .song audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .song:hover {
+      transform: scale(1.05);
+      background: #282828;
+    }
+
+    /* Footer (Player) */
+
+    
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #181818;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      border-top: 1px solid #333;
+      height: 80px;
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .player-controls button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .progress-bar {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    .progress-bar input {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <img src="https://brandingforum.org/wp-content/uploads/2023/10/spotify-logo-1024x651.webp " alt="" width="80">
+    <input type="text" placeholder="Search for your favourite songs">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="playlist.html">Playlist</a>
+    </nav>
+    <button>Login</button>
+  </header>
+
+  <!-- Trending Section -->
+  <h2>Trending Songs</h2>
+  <div id="trending">
+
+    <div class="song">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPz7PnC0950xVLVM3UMi1IHnQbGzo89lw36w&s" alt="" width="210">
+      <audio src="Barsaat Armaan Malik 320 Kbps.mp3" controls></audio>
+      <h3>Barsaat</h3>
+      <p>Kunaal Vermaa</p>
+    </div>
+    <div class="song">
+      <img src="https://m.media-amazon.com/images/M/MV5BYTJmYmI0YWQtYjI3MC00MWU4LWI2OTQtNDYyOGEyNThjZjg3XkEyXkFqcGc@._V1_.jpg" alt="">
+      <audio src="Sanam Teri Kasam Ankit Tiwari 320 Kbps.mp3"controls></audio>
+      <h3>Sanam Teri Kasam</h3>
+      <p>Ankit Tiwari</p>
+    </div>
+    <div class="song">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1a/a9/1d/1aa91d44-c695-55ab-306e-306c175e9078/Mujhse_Dosti_Karoge_Instrumentals.jpg/600x600bf-60.jpg" alt="">
+      <audio src="Saanwali Si Ek Ladki Mujhse Dosti Karoge! 320 Kbps.mp3"controls></audio>
+      <h3>Saanwali Si Ek Ladki</h3>
+      <p>Rahul Sharma</p>
+    </div>
+    <div class="song">
+      <img src="https://i.scdn.co/image/ab67616d0000b2731344800458a38197bfc721f3">
+      <audio src="Jhol(KoshalWorld.Com).mp3" controls></audio>
+      <h3>Jhol</h3>
+      <p>Annural Khalid</p>
+    </div>
+    <div class="song">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/1a/Sunny_Sanskari_Ki_Tulsi_Kumari_film_poster.jpg" alt="" width="210">
+      <audio src="Tu Hai Meri From Sunny Sanskari Ki Tulsi Kumari-320kbps.mp3" controls></audio>
+      <h3>Tu hai meri </h3>
+      <p>kousa munir</p>
+    </div>
+    <div class="song">
+      <img src="https://c.saavncdn.com/532/Deewaniyat-From-Ek-Deewane-Ki-Deewaniyat-Original-Motion-Picture-Soundtrack-Hindi-2025-20250827010315-500x500.jpg" alt="">
+      <audio src="Mera Hua From Ek Deewane Ki Deewaniyat Original Motion Picture Soundtrack-320kbps.mp3"controls></audio>
+      <h3>Deewaniyat</h3>
+      <p> Harshvardhan sonam</p>
+    </div>
+  </div>
+
+  <!-- Newly Released Section -->
+  <h2>Newly Released</h2>
+  <div id="newly">
+    <div class="song">
+      <img src="https://img.youtube.com/vi/MEKzlCfIytU/0.jpg" alt="height="100px">
+      <audio src="Title Track Saiyaara 320 Kbps.mp3" controls></audio>
+      <h3>Saiyyara</h3>
+      <p>Faheem Abdullah</p>
+    </div>
+    <div class="song">
+      <img src="https://a10.gaanacdn.com/gn_img/albums/oAJbDElKnL/JbD7l7llWn/size_m_1753860138.jpg" alt="">
+      <audio src="Pardesiya Param Sundari 128 Kbps.mp3" controls ></audio>
+      <h3>Pardesiya</h3>
+      <p>Sonu Nigam, Krishnakali Saha</p>
+    </div>
+    <div class="song">
+      <img src="https://c.saavncdn.com/591/Into-You-Punjabi-2024-20241210053606-500x500.jpg" alt="">
+      <audio src="Into-You-320kbps.mp3 "controls></audio>
+      <h3>Into you</h3>
+      <p>Hiten</p>
+    </div>
+    <div class="song">
+      <img src="https://c.saavncdn.com/967/Aaj-Bhi-2-Hindi-2024-20240910053147-500x500.jpg" alt="">
+      <audio src="Aaj Bhi 2(KoshalWorld.Com).mp3" controls></audio>
+      <h3>Aaj Bhi2</h3>
+      <p>Visal Mishra</p>
+    </div>
+  <div class="song">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wJC5fGj_yCNEC0Ht9b7YRaRYDO4X3zpahA&s" alt=""><audio src="Bol Do Na Zara(KoshalWorld.Com).mp3" controls></audio>
+      <h3>Bol do na zara</h3>
+      <p>Armaan Malik</p>
+    </div>
+  
+
+  <div class="song">
+      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpagalnew.com%2Fsongs%2Fall-for-you-lost-found.html&psig=AOvVaw3Ttt9MP1Mxk_4-PngP9BjT&ust=1758835149052000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPD_x9ep8o8DFQAAAAAdAAAAABAE" alt="">
+      <audio src="All For You - DjPunjab.Com.Se.mp3" controls></audio>
+      <h3>All For You</h3>
+      <p>The PropheC Ezu</p>
+    </div>
+  <div class="song">
+      <img src="https://i.scdn.co/image/ab67616d0000b2734eab0036cabac79a791a59cb" alt="">
+      <audio src="Ehsaas Faheem Abdullah 320 Kbps.mp3" controls></audio>
+      <h3>Ehsaas</h3>
+      <p>Abdullah</p>
+    </div>
+  <div class="song">
+      <img src="https://a10.gaanacdn.com/gn_img/albums/koMWQ7BKqL/oMWQlO843q/size_m_1563998274.webp" alt="">
+      <audio src="Bas Ek Baar - DjPunjab.Com.Se.mp3" controls></audio>
+      <h3>Bas Ek Baar</h3>
+      <p>Soham Naik</p>
+    </div>
+    <div class="song">
+      <img src="https://cover.djpunjab.is/57046/300x700/haseen-talwiinder.webp" alt="">
+      <audio src="Haseen Talwiinder 320 Kbps.mp3" controls></audio>
+      <h3>Haseen</h3>
+      <p>Talwiinder</p>
+    </div>
+  
+  
+    <div class="song">
+      <img src="https://c.saavncdn.com/423/Table-No-21-Hindi-2012-20230616151505-500x500.jpg" alt="">
+      <audio src="Mann Mera Table No. 21 320 Kbps.mp3" controls></audio>
+      <h3>Mann Mera </h3>
+      <p>Gajendra Verma</p>
+    </div>
+  
+  
+    <div class="song">
+      <img src="https://hindi2.djpunjab.app/cover/rofYjOK7WZ40ZwkQsu2BJg==/4-saal-cover-image.webp" alt="">
+      <audio src="Nahin Milta(KoshalWorld.Com).mp3" controls></audio>
+      <h3>Nahin Milta-Bayaan</h3>
+      <p>Asfar Hussain</p>
+    </div>
+  
+  <div class="song">
+      <img src="https://sonylyrics.com/wp-content/uploads/2025/04/Pal-Pal-1.webp" alt="">
+      <audio src="Pal Pal Afusic (pagalall.com).mp3" controls></audio>
+      <h3>Pal Pal Jeena</h3>
+      <p>Alisoomro</p>
+    </div>
+    
+    <div class="song">
+      <img src="https://cover.djpunjab.is/57652/300x700/sardaar-ji-3-ep-diljit-dosanjh.webp" alt="">
+      <audio src="Sohni Lagdi - Diljit Dosanjh.mp3" controls></audio>
+      <h3>Sohni Lagdi</h3>
+      <p>Diljit Dosanjh</p>
+    </div>
+
+    <div class="song">
+      <img src="https://i1.sndcdn.com/artworks-M0DzXhZQPX8q0sp9-Ohv6pw-t500x500.jpg" alt="">
+      <audio src="Zulfaan.mp3" controls></audio>
+      <h3>Zulfaan</h3>
+      <p>Dr Zeus</p>
+    </div>
+  <!-- Music Player Footer -->
+  <footer>
+    <div>🎵 Now Playing: <strong>Barsaat</strong> - Kunaal Vermaa</div>
+    <div class="player-controls">
+      <button>⏮</button>
+      <button>⏯</button>
+      <button>⏭</button>
+    </div>
+    <div class="progress-bar">
+      <input type="range" min="0" max="100" value="30">
+    </div>
+  </footer>
+</body>
+</html>
